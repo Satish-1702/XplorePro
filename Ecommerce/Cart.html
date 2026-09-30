@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThinkMart | Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Free shipping on orders above $99</span>
+        <div class="topbar-links">
+          <a href="Home-Page.html">Home</a>
+          <a href="Products.html">Products</a>
+          <a href="Contact.html">Support</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <div class="container navbar-inner">
+        <a href="Home-Page.html" class="logo">Think<span>Mart</span></a>
+        <div class="nav-links">
+          <a href="Home-Page.html">Home</a>
+          <a href="Products.html">Products</a>
+          <a href="Cart.html" class="active">Cart</a>
+          <a href="About.html">About</a>
+          <a href="Contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <div class="search-box">
+            <span>⌕</span>
+            <input type="text" placeholder="Search" />
+          </div>
+          <a href="index.html" class="btn btn-light">Login</a>
+          <a href="Register-Page.html" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-banner">
+      <div class="container">
+        <h1>Your cart</h1>
+        <p>Review your items and complete your order with a quick checkout.</p>
+      </div>
+    </header>
+
+    <main class="container cart-layout">
+      <section class="cart-list">
+        <article class="cart-item">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80" alt="Laptop" />
+          <div>
+            <h3>Acer Predator Laptop</h3>
+            <small>15.6 inch • Intel i7 • 16GB RAM</small>
+            <div class="qty-box">
+              <button type="button">−</button>
+              <span>1</span>
+              <button type="button">+</button>
+            </div>
+          </div>
+          <div>
+            <strong>$1,199</strong>
+          </div>
+        </article>
+
+        <article class="cart-item">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80" alt="Phone" />
+          <div>
+            <h3>Nova X Pro</h3>
+            <small>128GB • Dual camera • 5G</small>
+            <div class="qty-box">
+              <button type="button">−</button>
+              <span>1</span>
+              <button type="button">+</button>
+            </div>
+          </div>
+          <div>
+            <strong>$899</strong>
+          </div>
+        </article>
+
+        <article class="cart-item">
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80" alt="Watch" />
+          <div>
+            <h3>Pulse S7 Smart Watch</h3>
+            <small>Black strap • Health tracking</small>
+            <div class="qty-box">
+              <button type="button">−</button>
+              <span>1</span>
+              <button type="button">+</button>
+            </div>
+          </div>
+          <div>
+            <strong>$249</strong>
+          </div>
+        </article>
+      </section>
+
+      <aside class="order-summary">
+        <h3 style="font-size: 1.7rem; letter-spacing: -0.05em; margin-bottom: 12px;">Order summary</h3>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>$2,347</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>$25</span>
+        </div>
+        <div class="summary-row">
+          <span>Tax</span>
+          <span>$188</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span>$2,560</span>
+        </div>
+
+        <div class="summary-actions">
+          <a href="Products.html" class="btn btn-secondary">Continue shopping</a>
+          <a href="#" class="btn btn-primary">Proceed to checkout</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <a href="Home-Page.html" class="logo">Think<span>Mart</span></a>
+          <p style="margin-top: 12px; max-width: 280px;">Your one-stop destination for quality gadgets, lifestyle essentials, and smart deals.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Products.html">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>hello@thinkmart.com</li>
+            <li>+1 (555) 245-1888</li>
+            <li>123 Market Street</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">© 2026 ThinkMart. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

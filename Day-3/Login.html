@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+
+        * {
+            margin: 0;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiDERXwbMEupPJVS3-5U04iLq4mcp1jkoavw_jK0zxOA&s=10");
+            background-size: cover;
+            background-position: center;
+        }
+
+        fieldset {
+            border: none;
+            padding: 40px;
+            border-radius: 10px 50px;
+            box-shadow: 8px 8px 20px 10px aliceblue;
+            backdrop-filter: blur(5px);
+            /* animation-name: scaling; */
+            animation-duration:5s;
+            /* animation-iteration-count: infinite;
+            animation-timing-function: linear; */
+        }
+
+        @keyframes scaling{
+            0%{
+                transform: scale(0);
+            }
+            /* 30%{
+                transform: rotate(0deg);
+            }
+            50%{
+                transform: rotate(360deg);
+            } */
+            100%{
+                transform: scale(1.2);
+            }
+        }
+
+        label {
+            color: aliceblue;
+            font-weight: bold;
+            font-style: italic;
+
+        }
+
+        label::after {
+            content: "*";
+            color: red;
+        }
+
+        legend {
+            font-style: italic;
+            text-shadow: 3px 3px 3px aliceblue;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: transparent;
+            background-image: linear-gradient(45deg, white, red, darkred);
+            -webkit-background-clip: text;
+            font-style: italic;
+            font-family: "Faster One", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+        button{
+            margin-top:30px ;
+            padding: 5px 30px;
+            font-family: monospace;
+            font-weight: bold;
+            font-style: italic;
+            border: none;
+        }
+        button:hover{
+            color: aliceblue;
+            
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: gray;
+            border: none;
+            box-shadow: 4px 4px 4px aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Login Form</legend>
+            <h1>Sign-In</h1>
+            <label for="username">Username :</label>
+            <input type="text" required maxlength="10" minlength="3" placeholder="Enter Username" id="username"
+                name="username">
+            <br>
+            <br>
+            <label for="psw">Password :</label>
+            <input type="password" placeholder="enter password" required id="psw" name="password">
+            <br><br>
+            <button type="submit">Login</button>
+            <button type="reset">Cancel</button>
+        </fieldset>
+    </form>
+
+
+    <script>
+        let name = document.getElementsByName("username");
+        let password = document.getElementsByName("password");
+
+        let form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log(" Username: ", name[0].value);
+            console.log(" Password: ", password[0].value);
+
+        })
+
+    </script>
+</body>
+
+</html>

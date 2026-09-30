@@ -1,0 +1,139 @@
+Front End(client ) : 
+--------------------
+    ->What are all the User Can on the Screen (user interface) is called as Front End 
+
+Middle Layer(Server/backend): 
+-----------------------------
+    ->In Backend all the request and response handled by server ,Here Main business logic / validation to store data in Database 
+
+Database : 
+----------
+    ->Database is the place where we can store data for farther operations 
+
+Web Applications : 
+-------------------
+    ->Any Applications that will be run in browsers is called as a Web Applications 
+
+    Types: 
+    ------  
+        1.Static Web Applications: 
+        --------------------------
+            ->Any Web Applications doesn't have functionalities is called as Static web Applications
+            ->To Build Static Pages we use only HTML and CSS 
+
+        2.Dynamic Web Applications: 
+        --------------------------
+            ->Any Web Applications having functionalities is called as Dynamic web Applications
+            ->To Build Dynamic Pages we use HTML , CSS and JS 
+
+SGML : 
+------
+
+HTML : 
+------
+    ->HTML stands for Hyper Markup Language used to build the structure of the web Pages 
+    ->HTML introduced in the year 1191 by the developer "Tim bernerse lie"
+    ->HTML Contains Series of "ELEMENTS" 
+    ->present version of HTML is "HTML 5"
+
+HTML boiler plate : 
+-------------------
+
+
+
+ 25-09-2026
+ ===========
+
+ Tags: 
+ -----
+    ->Tags are pre-define  words which are enclosed with both opening and closing angular brackets 
+    Ex: 
+        <h1> , <meta> ,<title> , <p> , <figure> ,<li> ..etc 
+
+    Types: 
+        1. Paired tags 
+            ->Any tags having opening and closings tags 
+            Ex: 
+                i. all heading tags 
+                 Ex:   <h1>  </h1>
+                       <h2>  </h2>
+                       <h3>  </h3>
+                       <h4>  </h4>
+                       <h5>  </h5>
+                       <h6>  </h6>
+
+                ii. formatting tags : 
+                    Ex: 
+                        <i> </i>            ->italic
+                        <em></em>           ->italic
+                        <b></b>             ->bold
+                        <strong></strong>   ->bold
+                        <u></u>             ->underline
+                        <strike></strike>   ->to strike text 
+                        <sub></sub>         -> SubScript
+                        <sup></sup>         -> Super Script
+                        <mark></mark>       ->to Light text 
+                        <center></center>   ->content at center 
+                        <marquee></marquee> ->to scroll in different direction
+
+
+                
+
+
+    2. Unpaired tags/self closing tags 
+    ->Any Tags having only opening tags 
+            Ex: 
+            <br> , <hr>, <img> , <col>, <input> ,<meta> ..etc 
+
+
+Attribute : 
+-----------
+    ->Attribute are the additional information given to the tags 
+    ->Attributes are always in opening 
+
+    Ex: 
+        <h1 align="center" id="heading"> </h1> 
+         or 
+        <img src="" alt="" height="" width="">
+
+
+HTML Elements : 
+----------- 
+    ->opening , closing tag and the content together is called HTML Elements 
+
+    Ex: <h1> Heading </h1>
+        <p> ---------- </p>
+
+
+Form tags : 
+-----------
+    <form></form>
+    <fieldset></fieldset>
+    <legend></legend>     
+    <label> </label>    
+    <input> 
+    <textarea> </textarea>  
+    <button></button>  
+    <select></select>
+
+
+
+
+JOB APPLICATION FORM : 
+----------------------
+    1. First Name 
+    2. Last Name 
+    3. Email
+    4. Phone
+    5. Gender
+    6. College Name 
+    8. State   -> 5 states 
+    7. Address 
+    9. Skills  ->java spring boot , API Integration , Postmen , SQL , MYSQL , React 
+    10. Language -> English , Telugu , Kannada , Hindi 
+    11. Resume  
+
+
+       
+
+https://github.com/ashokm0603/VVIT-Java-Full-Stack-CSE-C.git
