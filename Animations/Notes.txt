@@ -1,0 +1,16 @@
+To animate Css elements
+
+Properties:
+to animate name
+animation duration
+animation-timing-function
+animation-delay
+animation-direction
+
+=> % in Animation:
+@keyframes myName{
+    0%[front-size:20px;]
+    50%[front-size:30px;]
+    100%[front-size:40px;]
+
+}
