@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  title: IceStore API
+  version: 1.0.0
+  description: REST API for the IceStore fashion commerce application.
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Authentication
+  - name: Products
+  - name: Cart
+  - name: Orders
+  - name: Reviews
+  - name: Coupons
+paths:
+  /api/auth/register:
+    post:
+      tags: [Authentication]
+      summary: Register a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Credentials'}
+      responses:
+        '200': {description: Authentication response}
+        '409': {description: Email already registered}
+  /api/auth/login:
+    post:
+      tags: [Authentication]
+      summary: Authenticate a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Credentials'}
+      responses:
+        '200': {description: Authentication response}
+        '401': {description: Invalid credentials}
+  /api/products:
+    get:
+      tags: [Products]
+      summary: List products
+      parameters:
+        - in: query
+          name: search
+          schema: {type: string}
+      responses:
+        '200':
+          description: Product list
+          content:
+            application/json:
+              schema: {type: array, items: {$ref: '#/components/schemas/Product'}}
+    post:
+      tags: [Products]
+      summary: Create a product
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Product'}
+      responses:
+        '200': {description: Product created}
+        '401': {description: Authentication required}
+        '403': {description: Admin role required}
+  /api/products/{id}:
+    parameters:
+      - {$ref: '#/components/parameters/ProductId'}
+    get:
+      tags: [Products]
+      summary: Get a product
+      responses:
+        '200': {description: Product details}
+        '404': {description: Product not found}
+    put:
+      tags: [Products]
+      summary: Update a product
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Product'}
+      responses:
+        '200': {description: Product updated}
+    delete:
+      tags: [Products]
+      summary: Delete a product
+      security: [{bearerAuth: []}]
+      responses:
+        '204': {description: Product deleted}
+  /api/cart:
+    get:
+      tags: [Cart]
+      summary: Get the authenticated user's cart
+      security: [{bearerAuth: []}]
+      responses: {'200': {description: Cart}}
+    put:
+      tags: [Cart]
+      summary: Replace the authenticated user's cart
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Cart'}
+      responses: {'200': {description: Cart saved}}
+  /api/orders:
+    get:
+      tags: [Orders]
+      summary: List the authenticated user's orders
+      security: [{bearerAuth: []}]
+      responses: {'200': {description: Order history}}
+    post:
+      tags: [Orders]
+      summary: Place an order
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Order'}
+      responses: {'200': {description: Order placed}}
+  /api/products/{productId}/reviews:
+    parameters:
+      - in: path
+        name: productId
+        required: true
+        schema: {type: string}
+    get:
+      tags: [Reviews]
+      summary: List product reviews
+      responses: {'200': {description: Review list}}
+    post:
+      tags: [Reviews]
+      summary: Add a product review
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Review'}
+      responses: {'200': {description: Review created}}
+  /api/coupons/{code}:
+    parameters:
+      - in: path
+        name: code
+        required: true
+        schema: {type: string}
+    get:
+      tags: [Coupons]
+      summary: Validate an active coupon
+      security: [{bearerAuth: []}]
+      responses:
+        '200': {description: Coupon details}
+        '404': {description: Coupon not found}
+components:
+  parameters:
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema: {type: string}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Credentials:
+      type: object
+      required: [email, password]
+      properties:
+        name: {type: string}
+        email: {type: string, format: email}
+        password: {type: string, format: password, minLength: 6}
+    Product:
+      type: object
+      required: [name, category, price, image]
+      properties:
+        id: {type: string}
+        name: {type: string}
+        category: {type: string}
+        price: {type: integer, minimum: 0}
+        oldPrice: {type: integer, minimum: 0}
+        tag: {type: string}
+        rating: {type: number, minimum: 0, maximum: 5}
+        image: {type: string, format: uri}
+        colors: {type: array, items: {type: string}}
+        sizes: {type: array, items: {type: string}}
+        stock: {type: integer, minimum: 0}
+    Cart:
+      type: object
+      properties:
+        id: {type: string}
+        userId: {type: string}
+        items: {type: array, items: {$ref: '#/components/schemas/CartItem'}}
+    CartItem:
+      type: object
+      properties:
+        productId: {type: string}
+        name: {type: string}
+        price: {type: integer}
+        quantity: {type: integer, minimum: 1}
+        size: {type: string}
+        color: {type: string}
+        image: {type: string}
+    Order:
+      allOf:
+        - {$ref: '#/components/schemas/Cart'}
+        - type: object
+          properties:
+            subtotal: {type: integer}
+            discount: {type: integer}
+            delivery: {type: integer}
+            total: {type: integer}
+            paymentMethod: {type: string, enum: [COD, RAZORPAY]}
+            shippingAddress: {type: string}
+    Review:
+      type: object
+      required: [rating, comment]
+      properties:
+        rating: {type: integer, minimum: 1, maximum: 5}
+        comment: {type: string}
+        author: {type: string}
+    Coupon:
+      type: object
+      properties:
+        code: {type: string}
+        percentage: {type: integer, minimum: 0, maximum: 100}
+        minimumOrder: {type: integer, minimum: 0}
+        active: {type: boolean}

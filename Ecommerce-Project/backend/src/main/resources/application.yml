@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/icestore}
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: ${PORT:8080}
+app:
+  jwt-secret: ${JWT_SECRET:change-this-secret-to-a-32-character-value}
+  frontend-url: ${FRONTEND_URL:http://localhost:5173}
